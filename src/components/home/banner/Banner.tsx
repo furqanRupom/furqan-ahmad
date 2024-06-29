@@ -9,8 +9,11 @@ interface IBannerProps { }
 
 const Banner: React.FunctionComponent<IBannerProps> = (props) => {
     return (
-        <section
+        <motion.section
             className='min-h-screen bg-center lg:bg-top'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             style={{
                 backgroundImage: 'url(https://i.ibb.co/Xsf2Cbm/small-circular-lines-1.png)',
                 backgroundSize: 'cover',
@@ -20,9 +23,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                 <div className='flex flex-col items-center justify-center'>
                     <motion.div
                         className='flex flex-col lg:flex-row items-center justify-center'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
+                 
                     >
                         <Image
                             src='https://i.ibb.co/CB6CPZP/images-2-removebg-preview.png'
@@ -31,7 +32,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                             height={120}
                         />
                         <div className='text-2xl sm:text-4xl lg:text-6xl font-bold flex items-center space-x-3 mt-5 lg:mt-16'>
-                            <h3>Hi! I'm</h3>
+                            <h3>Hi! I&apos;m</h3>
                             <h5 className='text-red-400'>Furqan Ahmad</h5>
                         </div>
                     </motion.div>
@@ -160,7 +161,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
