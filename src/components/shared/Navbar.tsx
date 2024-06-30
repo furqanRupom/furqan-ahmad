@@ -5,6 +5,8 @@ import Link from 'next/link';
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeSwitch from '../switch/themeSwitch';
+import { images } from '@/config/images';
+import Image from 'next/image';
 
 interface INavbarProps { }
 
@@ -31,12 +33,11 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h3 className='text-lg sm:text-xl bg-red-400 dark:bg-white dark:text-red-400 text-white rounded-full p-2 sm:p-3'>
+                    {/* <h3 className='text-lg sm:text-xl bg-red-400 dark:bg-white dark:text-red-400 text-white rounded-full p-2 sm:p-3'>
                         Fa <span>B</span>
-                    </h3>
-                    <h3>
-                        Furqan <span className='text-red-400 font-semibold'>Ahmad</span>
-                    </h3>
+                    </h3> */}
+                    <Image className='bg-red-400 rounded-full p-1' src={images.whitelogo} width={80} height={80} alt="logo" />
+                   
                 </motion.div>
                 {/* logo end */}
 
