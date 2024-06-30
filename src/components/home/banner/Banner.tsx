@@ -109,13 +109,13 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                             </div>
 
                             {/* middle two icons */}
-                            <div className='flex justify-between w-full mt-16 max-w-md sm:max-w-2xl mx-auto'>
+                            <div className='flex justify-between w-full mt-12 sm:mt-16 max-w-md sm:max-w-2xl mx-auto'>
                                 <IconCard src={icons.postgres} alt='PostgresSQL logo' label='PostgresSQL' delay={0.3} />
                                 <IconCard src={icons.redux} alt='Redux logo' label='Redux' delay={0.4} />
                             </div>
 
                             {/* last two icons */}
-                            <div className='flex justify-between w-full mt-16 max-w-sm sm:max-w-xl mx-auto'>
+                            <div className='flex justify-between w-full mt-12 sm:mt-16 max-w-sm sm:max-w-xl mx-auto'>
                                 <IconCard src={icons.tailwindcss} alt='TailwindCSS logo' label='TailwindCSS' delay={0.5} />
                                 <IconCard src={icons.mongodb} alt='MongoDB logo' label='MongoDB' delay={0.6} />
                             </div>
