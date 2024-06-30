@@ -67,7 +67,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className='absolute right-0 top-24 mr-5 lg:mr-32 shadow-md w-64 rounded-xl bg-clip-border bg-white dark:bg-gray-800'
+                                className='absolute right-0 top-24 mr-5  shadow-md w-64 rounded-xl bg-clip-border bg-white dark:bg-gray-800'
                             >
                                 <nav className='flex flex-col gap-1 p-2 font-sans text-base font-normal text-gray-700 dark:text-gray-400'>
                                     <Link href="/" className='text-initial'>
