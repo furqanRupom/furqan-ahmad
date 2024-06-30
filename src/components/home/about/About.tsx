@@ -9,9 +9,9 @@ interface IAboutProps { }
 
 const About: React.FunctionComponent<IAboutProps> = (props) => {
   return (
-    <section className=' lg:pt-32 pb-8   px-8'>
+    <section className=' pt-12 lg:pt-32 pb-8   px-8'>
       <motion.h3
-        className='text-center pt-12 font-bold text-2xl lg:text-4xl'
+        className='text-center pt-12 font-bold text-3xl lg:text-4xl'
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
