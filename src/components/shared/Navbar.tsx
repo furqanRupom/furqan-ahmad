@@ -21,7 +21,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
     return (
         <nav className='fixed top-0 w-full z-50 '>
             <motion.div
-                className='max-w-7xl mx-auto p-4 lg:p-2 lg:rounded-3xl flex justify-between lg:my-5 bg-white dark:bg-red-50 dark:bg-opacity-5 bg-opacity-5 shadow backdrop-blur-3xl'
+                className='max-w-7xl mx-auto p-4 lg:p-2 lg:rounded-3xl flex justify-between lg:my-5 bg-white dark:bg-red-400-50 dark:bg-opacity-5 bg-opacity-5 shadow backdrop-blur-3xl'
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -31,13 +31,13 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                     className='flex items-center gap-5 text-lg sm:text-xl md:text-2xl lg:text-3xl'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     {/* <h3 className='text-lg sm:text-xl bg-red-400 dark:bg-white dark:text-red-400 text-white rounded-full p-2 sm:p-3'>
                         Fa <span>B</span>
                     </h3> */}
                     <Image className='bg-red-400 rounded-full p-1' src={images.whitelogo} width={80} height={80} alt="logo" />
-                   
+
                 </motion.div>
                 {/* logo end */}
 
@@ -55,7 +55,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                         <h3 className='font-semibold pl-3 hidden md:block'>Menu</h3>
                         <motion.button
                             onClick={() => setIsOpen(!isOpen)}
-                            className='text-white bg-red-400 p-2 sm:p-3 rounded-full hover:bg-red-500 dark:bg-white dark:text-red-400'
+                            className='text-white bg-red-400 p-2 sm:p-3 rounded-full hover:bg-red-400-500 dark:bg-white dark:text-red-400'
                             whileTap={{ scale: 0.9 }}
                         >
                             <AlignRight />

@@ -9,7 +9,7 @@ interface IAboutProps { }
 
 const About: React.FunctionComponent<IAboutProps> = (props) => {
   return (
-    <section className='mt-32 pb-8 border-t dark:border-gray-600 px-8'>
+    <section className=' lg:pt-32 pb-8   px-8'>
       <motion.h3
         className='text-center pt-12 font-bold text-2xl lg:text-4xl'
         initial={{ opacity: 0, y: -20 }}
@@ -44,7 +44,7 @@ const About: React.FunctionComponent<IAboutProps> = (props) => {
       >
         <div className='lg:max-w-xl grid sm:grid-cols-2 mt-8 gap-5'>
           {[
-            { image: images.podcast, text: "Listening to Podcast", color: "bg-indigo-500" },
+            { image: images.podcast, text: "Listening to Podcast", color: "bg-red-500" },
             { image: images.programming, text: "Programming", color: "bg-red-500" },
             { image: images.sleeping, text: "Sleeping", color: "bg-orange-500" },
             { image: images.moneybag, text: "Money", color: "bg-green-500" }
@@ -74,7 +74,7 @@ const About: React.FunctionComponent<IAboutProps> = (props) => {
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ duration: 0.6, delay: 0.2 + (index + 4) * 0.2 }}
             >
-              <div className="absolute w-20 h-20 rounded-3xl bg-red-400 blur-xl -z-10 left-16  sm:top-[20%] sm:left-[40%]"></div>
+              <div className="absolute w-20 h-20 overflow-hidden rounded-3xl bg-red-400 blur-xl -z-10 left-7  sm:top-[20%] sm:left-[40%]"></div>
 
               <div className='font-bold text-5xl relative'>
                 {item.number}
@@ -103,6 +103,12 @@ const About: React.FunctionComponent<IAboutProps> = (props) => {
           My approach is driven by a commitment to delivering high-quality, responsive, and user-friendly applications. I am always eager to learn new technologies and best practices to continuously improve my skills and contribute to the success of the projects I work on.
         </p>
       </motion.div>
+
+      <div className='flex justify-center py-4'>
+        <a href="#contact-me" className='flex items-center  px-5 py-2 lg:px-7 lg:py-3 bg-opacity-15 bg-red-400 text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'>
+          <h3>Contact me</h3>
+        </a>
+      </div>
     </section>
   );
 };
