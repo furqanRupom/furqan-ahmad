@@ -20,10 +20,9 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
             ref={ref}
             style={{ backgroundImage: 'url(https://i.ibb.co/Xsf2Cbm/small-circular-lines-1.png)', backgroundSize: 'cover' }}
             className=' min-h-screen bg-center md:bg-top'
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, type: 'spring', bounce: 0.4 }}
         >
 
             <div className='absolute bg-indigo-400 dark:bg-opacity-10 bg-opacity-20 top-32 w-1/3 rounded-full h-1/3 blur-3xl -z-40'></div>
@@ -31,7 +30,6 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
             <div className='mx-auto text-center px-4 '>
                 <motion.div
                     className='flex flex-col lg:flex-row items-center lg:justify-center'
-
                 >
                     <Image
                         src='https://i.ibb.co/CB6CPZP/images-2-removebg-preview.png'
@@ -43,8 +41,8 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                         <h3>Hi! I&apos;m</h3>
                         <motion.h5
                             className='text-red-400'
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
                             Furqan Ahmad
@@ -76,14 +74,20 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <button className='flex items-center  px-5 py-2 lg:px-7 lg:py-3 bg-white text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'>
+                        <motion.button
+                            className='flex items-center px-5 py-2 lg:px-7 lg:py-3 bg-white text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'
+                            whileHover={{ scale: 1.05 }}
+                        >
                             <ArrowDownToLine className='mr-2' />
                             <h3>Resume</h3>
-                        </button>
+                        </motion.button>
 
-                        <button className='flex items-center  px-5 py-2 lg:px-7 lg:py-3 bg-opacity-15 bg-red-400 text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'>
+                        <motion.button
+                            className='flex items-center px-5 py-2 lg:px-7 lg:py-3 bg-opacity-15 bg-red-400 text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'
+                            whileHover={{ scale: 1.05 }}
+                        >
                             <h3>Hire Me</h3>
-                        </button>
+                        </motion.button>
                     </motion.div>
 
                     <div className='relative mt-12'>
