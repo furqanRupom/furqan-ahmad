@@ -46,6 +46,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
 
                 {/* menu bar start */}
                 <div className='flex items-center gap-3'>
+
+                    
                     <motion.div
                         whileTap={{ scale: 0.9 }}
                         className='bg-red-400 text-white  dark:bg-white dark:text-red-400 p-2 sm:p-3 rounded-full cursor-pointer'
