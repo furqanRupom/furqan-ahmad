@@ -5,6 +5,9 @@ import Image, { StaticImageData } from 'next/image';
 import * as React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { icons } from '@/config/icons';
+import { gsap } from 'gsap/gsap-core';
+import AnimatedBackground from '@/animation/login/backgroundAnimation';
+import ScrollTriggerComponent from '@/animation/scrollTrigger/ScrollTrigger';
 
 interface IBannerProps { }
 
@@ -12,8 +15,25 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: ref });
 
-    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
+
+    const backgroundRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const background = backgroundRef.current;
+
+        gsap.fromTo(
+            background,
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: 2,
+                ease: "power2.inOut",
+                repeat: -1,
+                yoyo: true
+            }
+        );
+    }, []);
 
     return (
         <motion.section
@@ -25,8 +45,10 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
             transition={{ duration: 2, type: 'spring', bounce: 0.4 }}
         >
 
-            <div className='absolute bg-indigo-400 dark:bg-opacity-10 bg-opacity-20 top-32 w-1/3 rounded-full h-1/3 blur-3xl -z-40'></div>
-            <div className='absolute bg-indigo-400 dark:bg-opacity-10 bg-opacity-20 right-0 top-36 w-1/3 rounded-full h-1/3 blur-3xl -z-40 '></div>
+            <AnimatedBackground>   <div className='absolute bg-red-400 dark:bg-opacity-10 bg-opacity-20 top-32  w-3/12 rounded-full h-1/3 blur-3xl -z-40'></div></AnimatedBackground>
+
+            <AnimatedBackground> <div className='absolute bg-red-400 dark:bg-opacity-10 bg-opacity-20 right-0 top-36 w-3/12 rounded-full h-1/3 blur-3xl -z-40 '></div></AnimatedBackground>
+
             <div className='mx-auto text-center px-4 '>
                 <motion.div
                     className='flex flex-col lg:flex-row items-center lg:justify-center'
@@ -37,6 +59,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                         width={120}
                         height={120}
                     />
+
                     <div className='text-3xl sm:text-4xl lg:text-6xl font-bold flex flex-col sm:flex-row items-center space-x-3 mt-5 lg:mt-16'>
                         <h3>Hi! I&apos;m</h3>
                         <motion.h5
@@ -48,6 +71,8 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                             Furqan Ahmad
                         </motion.h5>
                     </div>
+
+
                 </motion.div>
 
                 <div className='py-4'>
@@ -90,7 +115,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                         </motion.button>
                     </motion.div>
 
-                    <div className='relative mt-12'>
+                    <div className='relative mt-12 '>
                         <motion.div
                             className=''
                             initial={{ scale: 0.8, opacity: 0 }}
@@ -98,7 +123,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                             transition={{ duration: 0.5 }}
                         >
                             <Image
-                                className='mx-auto object-cover'
+                                className='mx-auto object-cover '
                                 src='https://i.ibb.co/xGMgnQY/Untitled-1.png'
                                 width={400}
                                 height={400}
@@ -127,6 +152,11 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                     </div>
                 </div>
             </div>
+
+
+            <AnimatedBackground>   <div className='absolute bg-red-400 dark:bg-opacity-10 bg-opacity-50 bottom-0 rounded-full  w-[12%]  h-[12%] blur-3xl -z-40'></div></AnimatedBackground>
+
+            <AnimatedBackground> <div className='absolute bg-red-400 dark:bg-opacity-10 bg-opacity-50 right-0 bottom-0  rounded-full w-[12%]  h-[12%] blur-3xl -z-40 '></div></AnimatedBackground>
             <div className='border-b -mt-4 dark:border-gray-600'></div>
         </motion.section>
     );

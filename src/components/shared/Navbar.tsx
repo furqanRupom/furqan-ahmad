@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemeSwitch from '../switch/themeSwitch';
 import { images } from '@/config/images';
 import Image from 'next/image';
+import { getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 
 interface INavbarProps { }
 
@@ -17,11 +19,12 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
     const toggleDarkMode = () => {
         setIsDark(!isDark);
     };
+    const session = useSession();
 
     return (
         <nav className='fixed top-0 w-full z-50 '>
             <motion.div
-                className='max-w-7xl mx-auto p-4 lg:p-2 lg:rounded-3xl flex justify-between lg:my-5 bg-white dark:bg-red-400-50 dark:bg-opacity-5 bg-opacity-5 shadow backdrop-blur-3xl'
+                className='max-w-7xl mx-auto p-4 lg:p-2 lg:rounded-3xl flex justify-between lg:my-5 bg-white dark:bg-gray-800 dark:bg-opacity-30 bg-opacity-70 shadow '
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -45,7 +48,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                 <div className='flex items-center gap-3'>
                     <motion.div
                         whileTap={{ scale: 0.9 }}
-                        className='bg-red-400 text-white cursor-pointer dark:bg-white dark:text-red-400 p-2 sm:p-3 rounded-full'
+                        className='bg-red-400 text-white  dark:bg-white dark:text-red-400 p-2 sm:p-3 rounded-full cursor-pointer'
                         onClick={toggleDarkMode}
                     >
                         <ThemeSwitch />
@@ -68,7 +71,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className='absolute right-0 top-24 mr-5  shadow-md w-64 rounded-xl bg-clip-border bg-white dark:bg-gray-800'
+                                className='absolute right-0 xl:right-28 top-24 mr-2  shadow-md w-64 rounded-xl bg-clip-border bg-white dark:bg-gray-800 backdrop-blur-2xl '
                             >
                                 <nav className='flex flex-col gap-1 p-2 font-sans text-base font-normal text-gray-700 dark:text-gray-400'>
                                     <Link href="/" className='text-initial'>
@@ -76,27 +79,81 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                             role="button"
                                             className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
                                             whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
+                                            whileTap={{ scale: 0.99 }}
                                         >
                                             Home
                                         </motion.div>
                                     </Link>
-                                    <Link href="/about" className='text-initial'>
+                                    <Link href="#about-me" className='text-initial'>
                                         <motion.div
                                             role="button"
                                             className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
                                             whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
+                                            whileTap={{ scale: 0.99 }}
                                         >
                                             About
                                         </motion.div>
                                     </Link>
-                                    <Link href="/contact" className='text-initial'>
+                                    <Link href="#projects" className='text-initial'>
                                         <motion.div
                                             role="button"
                                             className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
                                             whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Projects
+                                        </motion.div>
+                                    </Link>
+                                    <Link href="#skills" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Skills
+                                        </motion.div>
+                                    </Link>   <Link href="#education" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Education
+                                        </motion.div>
+                                    </Link>
+
+                                    {
+                                        session?.data && <Link href="/dashboard" className='text-initial'>
+                                            <motion.div
+                                                role="button"
+                                                className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.99 }}
+                                            >
+                                                dashboard
+                                            </motion.div>
+                                        </Link>
+                                    }
+                                    <Link href="/login" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Login
+                                        </motion.div>
+                                    </Link>
+
+
+                                    <Link href="#contact-me" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
                                         >
                                             Contact
                                         </motion.div>

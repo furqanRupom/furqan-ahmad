@@ -1,7 +1,13 @@
+import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcrypt"
 
-export const GET = async (req:NextRequest) => {
-   return   NextResponse.json({
-        message:"its works"
+
+
+export const POST = async (req: NextRequest) => {
+
+
+    return NextResponse.json({
+        message: "admin created"
     })
 }

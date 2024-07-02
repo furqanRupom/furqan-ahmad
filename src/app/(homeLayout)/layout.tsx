@@ -7,7 +7,6 @@ interface IHomeLayoutProps {
 
 const HomeLayout: React.FunctionComponent<IHomeLayoutProps> = ({children}) => {
   return <>
-
   <Navbar />
   {children}
   </>;

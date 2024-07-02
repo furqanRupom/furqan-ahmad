@@ -1,0 +1,96 @@
+/* custom.css */
+.cursor,
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-color: rgba(186, 49, 49, 1);
+    /* Correct the syntax */
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+}
+
+.cursor {
+    width: 8px;
+    height: 8px;
+}
+
+.cursor-follower {
+    width: 24px;
+    height: 24px;
+}
+
+/* styles.css */
+button,a {
+    cursor: none;
+}
+
+.cursor,
+.cursor-follower {
+    transition: transform 0.1s, opacity 0.1s;
+}
+
+
+.preloader {
+    width: 100%;
+    height: 100dvh;
+    z-index: 1000;
+    position: fixed;
+    background-color: #dfd1d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 30%;
+    min-width: 150px;
+    height: 10px;
+    background-color: #ad0f2c;
+    margin: 0 auto;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #55aaff;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+}
+
+@media (width <=768px) {
+    .text {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+    }
+
+    .progress-bar {
+        width: 50%;
+    }
+}
+
+@media (width <=400px) {
+    .text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+}
