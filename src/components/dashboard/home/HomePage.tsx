@@ -64,8 +64,8 @@ const HomePage = () => {
                         <LineChart data={chartData}
                             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                             <XAxis dataKey="name" stroke="gray" />
-                         
-                          
+
+
                             <Line type="monotone" dataKey="skills" strokeWidth={3} stroke="#fb7185" />
                             <Line type="monotone" dataKey="projects" strokeWidth={3} stroke="#fb923c" />
                             <Line type="monotone" dataKey="blogs" strokeWidth={3} stroke="#f87171" />
@@ -75,7 +75,7 @@ const HomePage = () => {
                         <BarChart data={chartData}
                             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                             <XAxis dataKey="name" stroke="gray" />
-                          
+
                             <Bar dataKey="skills" fill="#fb7185" />
                             <Bar dataKey="projects" fill="#fb923c" />
                             <Bar dataKey="blogs" fill="#f87171" />

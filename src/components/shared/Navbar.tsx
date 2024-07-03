@@ -47,7 +47,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                 {/* menu bar start */}
                 <div className='flex items-center gap-3'>
 
-                    
+
                     <motion.div
                         whileTap={{ scale: 0.9 }}
                         className='bg-red-400 text-white  dark:bg-white dark:text-red-400 p-2 sm:p-3 rounded-full cursor-pointer'
@@ -86,6 +86,18 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                             Home
                                         </motion.div>
                                     </Link>
+                                    {
+                                        session?.data && <Link href="/dashboard" className='text-initial'>
+                                            <motion.div
+                                                role="button"
+                                                className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.99 }}
+                                            >
+                                                dashboard
+                                            </motion.div>
+                                        </Link>
+                                    }
                                     <Link href="#about-me" className='text-initial'>
                                         <motion.div
                                             role="button"
@@ -94,6 +106,16 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                             whileTap={{ scale: 0.99 }}
                                         >
                                             About
+                                        </motion.div>
+                                    </Link>
+                                    <Link href="#services" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Services
                                         </motion.div>
                                     </Link>
                                     <Link href="#projects" className='text-initial'>
@@ -115,29 +137,31 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                         >
                                             Skills
                                         </motion.div>
-                                    </Link>   <Link href="#education" className='text-initial'>
+                                    </Link>   <Link href="#edu&ex" className='text-initial'>
                                         <motion.div
                                             role="button"
                                             className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.99 }}
                                         >
-                                            Education
+                                            Education & Experience
                                         </motion.div>
                                     </Link>
 
-                                    {
-                                        session?.data && <Link href="/dashboard" className='text-initial'>
-                                            <motion.div
-                                                role="button"
-                                                className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.99 }}
-                                            >
-                                                dashboard
-                                            </motion.div>
-                                        </Link>
-                                    }
+                                    <Link href="#blogs" className='text-initial'>
+                                        <motion.div
+                                            role="button"
+                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.99 }}
+                                        >
+                                            Blogs
+                                        </motion.div>
+                                    </Link>
+
+
+
+
                                     <Link href="/login" className='text-initial'>
                                         <motion.div
                                             role="button"

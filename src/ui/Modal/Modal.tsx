@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
     return (
         <motion.div
             className="fixed top-0 left-0 w-full h-full bg-black backdrop-blur-md bg-opacity-50 flex justify-center items-center"
-         
+
         >
             <motion.div
                 className="bg-gray-500 bg-opacity-5 dark:bg-slate-800 backdrop-blur-2xl rounded-lg shadow-lg p-6 "
@@ -32,16 +32,16 @@ const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
             >
                 <h1 className="text-xl font-bold mb-4">Animated Modal</h1>
                 <p>This modal is smoothly animated with Framer Motion and styled with TailwindCSS.</p>
-               
 
-               <div className="flex justify-end">
+
+                <div className="flex justify-end">
                     <button
                         onClick={() => setShowModal(false)}
                         className="mt-4 bg-red-400 text-white px-4 py-2 rounded"
                     >
                         Close
                     </button>
-               </div>
+                </div>
             </motion.div>
         </motion.div>
     );

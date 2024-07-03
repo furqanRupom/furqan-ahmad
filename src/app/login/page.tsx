@@ -8,15 +8,15 @@ import { useForm } from 'react-hook-form';
 interface ILoginPageProps { }
 
 const Login: React.FC = () => {
-  const {register,handleSubmit} = useForm<{email:string,password:string}>();
+  const { register, handleSubmit } = useForm<{ email: string, password: string }>();
   const router = useRouter();
 
-  const onSubmit = async (data:{email:string,password:string}) => {
-  await signIn('credentials',{
-      email:data.email,
-      password:data.password,
-      redirect:false
-    }); 
+  const onSubmit = async (data: { email: string, password: string }) => {
+    await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      redirect: false
+    });
     router.push('/dashboard');
   }
   return (
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
           <div className="mb-4">
             <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="email">Email</label>
             <input
-            {...register('email')}
+              {...register('email')}
               className="shadow appearance-none border border-gray-700 bg-gray-800 rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               type="email"
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
           <div className="mb-6">
             <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="password">Password</label>
             <input
-            {...register('password')}
+              {...register('password')}
               className="shadow appearance-none border border-gray-700 rounded w-full bg-gray-800 py-2 px-3 text-gray-400 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
@@ -52,10 +52,10 @@ const Login: React.FC = () => {
             >
               Login
             </button>
-         
+
           </div>
         </form>
-    
+
       </div>
     </div>
   );

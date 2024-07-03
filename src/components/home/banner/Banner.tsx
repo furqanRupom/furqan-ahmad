@@ -27,7 +27,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
             { opacity: 0 },
             {
                 opacity: 1,
-                duration: 2,
+                duration: 0.3,
                 ease: "power2.inOut",
                 repeat: -1,
                 yoyo: true
@@ -42,7 +42,7 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
             className=' min-h-screen bg-center md:bg-top'
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, type: 'spring', bounce: 0.4 }}
+            transition={{ duration: 1, type: 'spring', bounce: 0.4 }}
         >
 
             <AnimatedBackground>   <div className='absolute bg-red-400 dark:bg-opacity-10 bg-opacity-20 top-32  w-3/12 rounded-full h-1/3 blur-3xl -z-40'></div></AnimatedBackground>

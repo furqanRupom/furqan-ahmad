@@ -7,6 +7,7 @@ import redux from "@/assets/icons/redux.png"
 import git from "@/assets/icons/git.png"
 import nextjs from "@/assets/icons/nextjs.png"
 import mongodb from "@/assets/icons/mongodb.png"
+import github from "@/assets/icons/github.png"
 
 export const icons = {
     vscode,
@@ -17,5 +18,6 @@ export const icons = {
     redux,
     git,
     nextjs,
-    mongodb
+    mongodb,
+    github
 }

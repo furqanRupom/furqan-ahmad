@@ -29,10 +29,10 @@ const CustomCursor: React.FC = () => {
         });
 
         return () => {
-            document.removeEventListener('mousemove', () => {});
+            document.removeEventListener('mousemove', () => { });
             links.forEach(link => {
-                link.removeEventListener('mouseenter', () => {});
-                link.removeEventListener('mouseleave', () => {});
+                link.removeEventListener('mouseenter', () => { });
+                link.removeEventListener('mouseleave', () => { });
             });
         };
     }, []);
