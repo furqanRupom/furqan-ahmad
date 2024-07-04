@@ -36,7 +36,6 @@ export const options: NextAuthOptions = {
                     if (!matchedPassword) {
                         throw new Error("Password did not matched !");
                     }
-                        console.log(user)
                     return user;
 
                 } catch (error) {

@@ -185,17 +185,21 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                         </motion.div>
                                     </Link>
 
-                                    
-                                    <button onClick={()=> signOut()} className='text-initial'>
-                                        <motion.div
-                                            role="button"
-                                            className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.99 }}
-                                        >
-                                            Logout
-                                        </motion.div>
-                                    </button>
+
+                                    {
+                                        !session && <button onClick={() => signOut({
+                                            callbackUrl: "/login"
+                                        })} className='text-initial'>
+                                            <motion.div
+                                                role="button"
+                                                className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.99 }}
+                                            >
+                                                Logout
+                                            </motion.div>
+                                        </button>
+                                    }
                                 </nav>
                             </motion.div>
                         )}
