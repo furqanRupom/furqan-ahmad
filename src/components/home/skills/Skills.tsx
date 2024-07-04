@@ -39,8 +39,9 @@ const skillsStatics = [
 const Skills: React.FunctionComponent = () => {
     const skillsRef = useRef([]);
     const {data} = useSkills();
-    console.log(data)
+    // @ts-ignore
     const skills = data?.data;
+    console.log(skills)
 
     useEffect(() => {
         skillsRef.current.forEach((el, index) => {

@@ -1,4 +1,3 @@
-"use client";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -8,8 +7,9 @@ export const useSkills = () => {
         queryKey: ['skills'],
         queryFn: async () => {
             const data = await axios.get('/api/skills');
-            return await data.data;
-        }
+            return data.data;
+        },
     });
+
     return { data, refetch };
 };
