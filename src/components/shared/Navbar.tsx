@@ -184,6 +184,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                             Contact
                                         </motion.div>
                                     </Link>
+
+                                    
                                     <button onClick={()=> signOut()} className='text-initial'>
                                         <motion.div
                                             role="button"
