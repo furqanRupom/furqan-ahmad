@@ -54,6 +54,7 @@ model Projects {
 model Experience {
     id           String          @id @default(uuid())
     title String?
+    companyName String?
     startDate DateTime
     endDate DateTime
 }

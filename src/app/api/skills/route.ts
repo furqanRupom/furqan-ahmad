@@ -18,7 +18,7 @@ export const POST = async (req: NextRequest) => {
             data: createBlogs
         })
     } catch (error) {
-        NextResponse.json({ error: error, message: "Something went wrong" })
+       return  NextResponse.json({ error: error, message: "Something went wrong" })
     }
 }
 
@@ -31,6 +31,6 @@ export const GET = async (req: NextRequest) => {
             data: result
         })
     } catch (error) {
-        NextResponse.json({ error: error, message: "Something went wrong" })
+       return  NextResponse.json({ error: error, message: "Something went wrong" })
     }
 }

@@ -1,20 +1,22 @@
 "use client"
-import { useProjects } from '@/hooks/data/useProjects';
+import { useExperience } from '@/hooks/data/useExperience';
 import * as React from 'react';
 import BreadCumbDashboard from '@/ui/BredCumbDashboard/BreadCumbDashboard';
+import ExperienceModal from './components/ExperienceModal';
 
-interface IProjectsProps { }
 
-const Projects: React.FunctionComponent<IProjectsProps> = (props) => {
-  const { data, refetch } = useProjects();
+interface IExperienceProps { }
+
+const Experience: React.FunctionComponent<IExperienceProps> = (props) => {
+  const { data, refetch } = useExperience();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const projects = data?.data;
+  const experience = data?.data;
 
   return (
     <div className="px-8">
-      <BreadCumbDashboard items={['home', 'Project']} />
+      <BreadCumbDashboard items={['home', 'Experience']} />
 
-      <div className='flex justify-between  pt-10'>
+      <div className='flex justify-between pt-10'>
         <input
           className='dark:bg-gray-800 bg-gray-200 w-[25%] p-2 focus:outline-none dark:focus:outline-none outline-none rounded-xl border border-gray-400'
           placeholder='Search Here'
@@ -24,54 +26,42 @@ const Projects: React.FunctionComponent<IProjectsProps> = (props) => {
           onClick={() => setIsOpen(true)}
           className='py-3 px-5 rounded-2xl hover:bg-red-500 bg-red-400 font-bold capitalize text-white'
         >
-          Add New Blog
+          Add New Experience
         </button>
       </div>
 
       <div className="mt-6 overflow-x-auto">
-        {projects && projects.length > 0 ? (
+        {experience && experience.length > 0 ? (
           <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 rounded-3xl">
             <thead className="bg-gray-50 dark:bg-gray-800">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Images</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Description</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">GitHub</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Live Link</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Title</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Company Name</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Start Date</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">End Date</th>
               </tr>
             </thead>
             <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-              {projects.map((project: any) => (
-                <tr key={project.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">
-                    <ul>
-
-                      <li className="mb-2">
-                        <img src={project.projectImage[0]} alt={`Project ${project.name} `} className="h-12 w-12 object-cover rounded-md" />
-                      </li>
-                    </ul>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">{project.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{project.description}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                    <a href={project.github} className="text-blue-500 hover:underline">GitHub</a>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                    <a href={project.liveLink} className="text-blue-500 hover:underline">Live Link</a>
-                  </td>
+              {experience.map((exp: any) => (
+                <tr key={exp.id}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">{exp.title}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">{exp.companyName}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{new Date(exp.startDate).toLocaleDateString()}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{new Date(exp.endDate).toLocaleDateString()}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
           <div className="text-center py-8 text-gray-500 dark:text-gray-300">
-            No projects available.
+            No Experience available.
           </div>
         )}
       </div>
 
+      {isOpen && <ExperienceModal isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 };
 
-export default Projects;
+export default Experience;
