@@ -42,6 +42,7 @@ const Skills: React.FunctionComponent = () => {
     // @ts-ignore
     const skills = data?.data;
     console.log(skills)
+    
 
     useEffect(() => {
         skillsRef.current.forEach((el, index) => {

@@ -9,7 +9,6 @@ export const useBlogs = () => {
             const data = await axios.get('/api/blogs');
             return await data.data;
         },
-        refetchInterval: 2000, 
     });
     return { data, refetch };
 };

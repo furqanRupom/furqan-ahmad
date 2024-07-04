@@ -8,7 +8,6 @@ export const useSkills = () => {
             const response = await axios.get('/api/skills');
             return response.data;
         },
-        refetchInterval: 2000, // Refetch every 3 seconds
     });
 
     return { data, refetch, error, isLoading };
