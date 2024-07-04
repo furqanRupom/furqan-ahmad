@@ -8,7 +8,8 @@ export const useExperience = () => {
         queryFn: async () => {
             const data = await axios.get('/api/experience');
             return  await data.data;
-        }
+        },
+        refetchInterval: 2000, 
     });
     return { data, refetch };
 };

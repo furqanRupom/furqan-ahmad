@@ -8,7 +8,8 @@ export const useProjects = () => {
         queryFn: async () => {
             const data =  await axios.get('/api/projects');
            return  await data.data;
-        }
+        },
+        refetchInterval: 2000, 
     });
     return { data, refetch };
 };

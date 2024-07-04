@@ -1,15 +1,16 @@
-
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 export const useSkills = () => {
-    const { data, refetch } = useQuery({
+    const { data, refetch, error, isLoading } = useQuery({
         queryKey: ['skills'],
         queryFn: async () => {
-            const data = await axios.get('/api/skills');
-            return data.data;
+            const response = await axios.get('/api/skills');
+            return response.data;
         },
+        refetchInterval: 2000, // Refetch every 3 seconds
     });
 
-    return { data, refetch };
+    return { data, refetch, error, isLoading };
 };
+
