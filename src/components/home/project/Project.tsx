@@ -3,16 +3,20 @@
 import React, { useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
-import { projects } from "../../../constants/index";
 import { ProjectCard } from "./ProjectCard";
 import Title from "@/components/Title/Title";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useProjects } from "@/hooks/data/useProjects";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Works: React.FC = () => {
     const sectionRef = useRef(null);
+    const {data} = useProjects();
+    const projects = data?.data
+
+   
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -40,7 +44,7 @@ const Works: React.FC = () => {
             <Title title="My Recent Projects" />
 
             <div className="mt-20 flex flex-wrap gap-7 justify-center">
-                {projects.map((project, index) => (
+                {projects?.slice(1).map((project:any, index:any) => (
                     <ProjectCard live_link="" key={`project-${index}`} index={index} {...project} />
                 ))}
             </div>
