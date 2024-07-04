@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 interface ILoginPageProps { }
 
@@ -12,12 +13,20 @@ const Login: React.FC = () => {
   const router = useRouter();
 
   const onSubmit = async (data: { email: string, password: string }) => {
-    await signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      redirect: false
-    });
-    router.push('/dashboard');
+    try {
+      const response = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false
+      });
+
+      if (response?.ok) {
+        toast.success("Admin Logged in successfully !")
+      }
+      router.push('/dashboard');
+    } catch (error: any) {
+      toast.success(error?.message)
+    }
   }
   return (
     <div className='bg-center bg-no-repeat min-h-screen bg-cover relative flex items-center justify-center' style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMiPTnXnj6lOJ3OtDJ6gwIoVQ6VbfCWFi4LHQ1-2MLofZwcR6XaZWVqONd2rvy7HvDtYA&usqp=CAU')" }}>

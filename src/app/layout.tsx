@@ -49,7 +49,7 @@ export default function RootLayout({
               border: '1px solid transparent'
             },
             classNames: {
-              toast: 'dark:bg-gray-900 bg-gray-200 bg-opacity-10',
+              toast: 'dark:bg-gray-900 bg-gray-200 ',
               title: 'text-red-400',
               icon: 'dark:text-white',
             }

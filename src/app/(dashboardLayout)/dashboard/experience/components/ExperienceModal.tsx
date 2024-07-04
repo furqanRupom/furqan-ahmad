@@ -35,7 +35,7 @@ const ExperienceModal: React.FunctionComponent<IExperienceModalProps> = ({ isOpe
     const onSubmit = async (data: any) => {
         try {
             const createExperience = await axios.post('/api/experience', data);
-            const response = createExperience.data;
+            const response = await createExperience.data;
             if (response.success) {
                 toast.success('New Experience Successfully Added');
                 refetch();

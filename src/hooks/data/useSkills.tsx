@@ -8,7 +8,7 @@ export const useSkills = () => {
         queryKey: ['skills'],
         queryFn: async () => {
             const data = await axios.get('/api/skills');
-            return data.data;
+            return await data.data;
         }
     });
     return { data, refetch };

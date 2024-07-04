@@ -8,7 +8,7 @@ export const useBlogs = () => {
         queryKey: ['bogs'],
         queryFn: async () => {
             const data = await axios.get('/api/blogs');
-            return data.data;
+            return await data.data;
         }
     });
     return { data, refetch };
