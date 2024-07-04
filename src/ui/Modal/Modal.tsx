@@ -1,13 +1,15 @@
 "use client";
 import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
+import { CircleX } from "lucide-react";
 
 interface ModalProps {
     showModal: boolean;
     setShowModal: Dispatch<SetStateAction<boolean>>;
+    children: React.ReactNode;
+    title: string;
+    fullWidth?:boolean;
 }
-
-
 
 const modalVariants = {
     hidden: { y: "-50vh", opacity: 0 },
@@ -18,30 +20,28 @@ const modalVariants = {
     },
 };
 
-const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
+const Modal: React.FC<ModalProps> = ({ showModal, setShowModal, children, title,fullWidth }) => {
     return (
         <motion.div
-            className="fixed top-0 left-0 w-full h-full bg-black backdrop-blur-md bg-opacity-50 flex justify-center items-center"
-
+            className="fixed inset-0 flex items-center justify-center bg-gray-950 backdrop-blur-md bg-opacity-50  "
         >
             <motion.div
-                className="bg-gray-500 bg-opacity-5 dark:bg-slate-800 backdrop-blur-2xl rounded-lg shadow-lg p-6 "
+                className={`bg-opacity-5 dark:bg-slate-800 backdrop-blur-2xl rounded-lg shadow-lg p-6 ${fullWidth ? 'max-w-4xl' : ''}`}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, type: 'spring', bounce: 0.4 }}
             >
-                <h1 className="text-xl font-bold mb-4">Animated Modal</h1>
-                <p>This modal is smoothly animated with Framer Motion and styled with TailwindCSS.</p>
-
-
-                <div className="flex justify-end">
+                <div className="flex justify-between items-center">
+                    <h3 className="text-3xl uppercase">{title}</h3>
                     <button
                         onClick={() => setShowModal(false)}
-                        className="mt-4 bg-red-400 text-white px-4 py-2 rounded"
+                        className=" text-red-400 rounded-3xl p-1 dark:text-white"
                     >
-                        Close
+                        <CircleX size={30} />
                     </button>
                 </div>
+                {children}
+              
             </motion.div>
         </motion.div>
     );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "./providers";
 import CustomCursor from "@/animation/custom/Cursor";
 import SmoothScroll from "@/animation/hooks/smoothScroll";
+import {Toaster} from "sonner"
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Poppins({ subsets: ["latin"],weight:[
@@ -43,6 +44,16 @@ export default function RootLayout({
       <body className={`${baloo.className} dark:bg-gray-900`}>
           <Providers>
             {children}
+          <Toaster position="top-center" toastOptions={{
+            style: {
+              border: '1px solid transparent'
+            },
+            classNames: {
+              toast: 'dark:bg-gray-900 bg-gray-200 bg-opacity-10',
+              title: 'text-red-400',
+              icon: 'dark:text-white',
+            }
+          }} />
           </Providers>
       </body>
     </html>

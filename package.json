@@ -15,8 +15,12 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@gsap/react": "^2.1.1",
+    "@hookform/resolvers": "^3.7.0",
     "@prisma/client": "^5.16.1",
     "@studio-freight/react-lenis": "^0.0.47",
+    "@table-library/react-table-library": "^4.1.7",
+    "@tanstack/react-query": "^5.49.2",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "framer-motion": "^11.2.12",
     "gsap": "^3.12.5",
@@ -29,7 +33,10 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
     "react-tilt": "^1.0.2",
-    "recharts": "^2.12.7"
+    "recharts": "^2.12.7",
+    "sonner": "^1.5.0",
+    "toast": "^0.5.4",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

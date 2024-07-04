@@ -43,9 +43,17 @@ model ProjectSkills {
 
 model Projects {
   id           String          @id @default(uuid())
+  name String
   skills       ProjectSkills[]
   projectImage String[]
   github       String
   liveLink     String
   description  String
+}
+
+model Experience {
+    id           String          @id @default(uuid())
+    title String?
+    startDate DateTime
+    endDate DateTime
 }
