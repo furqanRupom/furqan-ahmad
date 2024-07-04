@@ -3,6 +3,10 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Title from '@/components/Title/Title';
 import Button from '@/ui/Button/Button';
+import { useBlogs } from '@/hooks/data/useBlogs';
+import moment from "moment"
+import ReactHtmlParser from 'html-react-parser';
+import HTMLReactParser from 'html-react-parser/lib/index';
 
 interface IBlog {
     title: string;
@@ -40,6 +44,8 @@ const BlogsSection: React.FunctionComponent<IBlogsPageProps> = (props) => {
             link: '#',
         },
     ];
+    const {data} = useBlogs();
+    const blogs = data?.data;
     useEffect(() => {
         const section = blogsRef.current;
 
@@ -65,7 +71,7 @@ const BlogsSection: React.FunctionComponent<IBlogsPageProps> = (props) => {
         <section id="blogs" ref={blogsRef} className="pt-16 px-8">
            <Title title='My Recent Blogs' />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-20">
-                {mockBlogs.map((blog, index) => (
+                {blogs?.map((blog:any, index:any) => (
                     <div key={index} className=" rounded-lg dark:bg-gray-950 dark:bg-opacity-20  shadow-lg p-4 flex flex-col">
                         <div className="flex items-start">
                             <img 
@@ -76,12 +82,12 @@ const BlogsSection: React.FunctionComponent<IBlogsPageProps> = (props) => {
                             <div>
                                 <h3 className="text-lg font-bold dark:text-white text-gray-900">{blog.title}</h3>
                                <div className='inline-flex space-x-3'>
-                                    <p className="text-sm dark:text-gray-400  text-gray-700">{blog.author}</p>
-                                    <p className="text-sm   dark:text-gray-400 text-gray-700">21 Auguest 2024</p>
+                                    <p className="text-sm dark:text-gray-400  text-gray-700">{blog.author.name}</p>
+                                    <p className="text-sm   dark:text-gray-400 text-gray-700">{moment(blog.createdAt).format('lll')}</p>
                                </div>
                             </div>
                         </div>
-                        <p className="dark:text-gray-400  my-4">{blog.content}</p>
+                        <p className="dark:text-gray-400  my-4">{HTMLReactParser(blog.content)}</p>
                        <div className='w-fit mt-auto'>
                             <button className='flex items-center  px-3 py-2 text-sm  bg-opacity-15 bg-red-400 text-red-400 rounded-xl cursor-pointer hover:bg-red-400 hover:text-white duration-100 border-red-400 border'>
                                 Read more
