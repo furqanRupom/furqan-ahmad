@@ -22,6 +22,7 @@ const BlogEditor = () => {
             try {
                 const createBlogs = await axios.post('/api/blogs',{...data,email});
                 const response = await createBlogs.data;
+                console.log(response)
                 if(response.success){
                     toast.success('Blog successfully posted !');
                     router.push('/dashboard/blogs')

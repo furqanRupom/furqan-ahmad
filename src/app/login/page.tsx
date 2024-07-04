@@ -13,14 +13,15 @@ const Login: React.FC = () => {
   const router = useRouter();
 
   const onSubmit = async (data: { email: string, password: string }) => {
+    console.log(data);
     const toastId = toast.loading("Login on process...")
     try {
       const response = await signIn('credentials', {
         email: data.email,
         password: data.password,
-        redirect: false
+        redirect: false,
       });
-
+        console.log(response)
       if (response?.ok) {
         toast.success("Admin Logged in successfully !",{id:toastId});
         router.push('/dashboard');
