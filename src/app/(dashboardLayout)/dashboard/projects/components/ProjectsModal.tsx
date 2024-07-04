@@ -61,7 +61,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
         <Modal showModal={isOpen} setShowModal={setIsOpen} title='Add New Project' fullWidth={true}>
             <form onSubmit={handleSubmit(onSubmit)} className="p-4 space-y-4 rounded w-full">
                 <div>
-                    <label className="block mb-1 text-gray-700">Project Name</label>
+                    <label className="block mb-1 dark:text-gray-200 text-gray-800">Project Name</label>
                     <input
                         {...register('name')}
                         className="dark:bg-gray-800 bg-gray-200 w-full p-2 focus:outline-none dark:focus:outline-none outline-none rounded-xl border border-gray-400"
@@ -70,7 +70,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
                 </div>
 
                 <div>
-                    <label className="block mb-1 text-gray-700">Description</label>
+                    <label className="block mb-1 dark:text-gray-200 text-gray-800">Description</label>
                     <textarea
                         {...register('description')}
                         className="dark:bg-gray-800 bg-gray-200 w-full p-2 focus:outline-none dark:focus:outline-none outline-none rounded-xl border border-gray-400"
@@ -80,7 +80,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
 
                 <div className='grid lg:grid-cols-2 gap-5'>
                     <div>
-                        <label className="block mb-1 text-gray-700">GitHub Link</label>
+                        <label className="block mb-1 dark:text-gray-200 text-gray-800">GitHub Link</label>
                         <input
                             {...register('github')}
                             className="dark:bg-gray-800 bg-gray-200 w-full p-2 focus:outline-none dark:focus:outline-none outline-none rounded-xl border border-gray-400"
@@ -88,7 +88,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
                         
                     </div>
                     <div>
-                        <label className="block mb-1 text-gray-700">Live Link</label>
+                        <label className="block mb-1 dark:text-gray-200 text-gray-800">Live Link</label>
                         <input
                             {...register('liveLink')}
                             className="dark:bg-gray-800 bg-gray-200 w-full p-2 focus:outline-none dark:focus:outline-none outline-none rounded-xl border border-gray-400"
@@ -99,7 +99,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
 
               <div className='grid lg:grid-cols-2 gap-5'>
                     <div>
-                        <label className="block mb-1 text-gray-700">Skills</label>
+                        <label className="block mb-1 dark:text-gray-200 text-gray-800">Skills</label>
                         {skillFields.map((field, index) => (
                             <div key={field.id} className="flex items-center mb-2 space-x-2">
                                 <input
@@ -131,7 +131,7 @@ const ProjectsModal: React.FunctionComponent<IProjectsModalProps> = ({ isOpen, s
                     </div>
 
                     <div>
-                        <label className="block mb-1 text-gray-700">Project Images</label>
+                        <label className="block mb-1 dark:text-gray-200 text-gray-800">Project Images</label>
                         {imageFields.map((field, index) => (
                             <div key={field.id} className="flex items-center mb-2 space-x-2">
                                 <input

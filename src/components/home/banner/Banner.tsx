@@ -99,13 +99,14 @@ const Banner: React.FunctionComponent<IBannerProps> = (props) => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <motion.button
+                        <motion.a
+                            href='https://drive.google.com/uc?export=download&id=1Ct_-IR2AGmeXN1CE5Tac45Q3c5wACViI'
                             className='flex items-center px-5 py-2 lg:px-7 lg:py-3 bg-white text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'
                             whileHover={{ scale: 1.05 }}
                         >
                             <ArrowDownToLine className='mr-2' />
                             <h3>Resume</h3>
-                        </motion.button>
+                        </motion.a>
 
                         <motion.button
                             className='flex items-center px-5 py-2 lg:px-7 lg:py-3 bg-opacity-15 bg-red-400 text-red-400 rounded-3xl hover:bg-red-400 hover:text-white duration-100 border-red-400 border'
