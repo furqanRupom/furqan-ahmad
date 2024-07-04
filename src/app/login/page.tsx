@@ -13,6 +13,7 @@ const Login: React.FC = () => {
   const router = useRouter();
 
   const onSubmit = async (data: { email: string, password: string }) => {
+    const toastId = toast.loading("Login on process...")
     try {
       const response = await signIn('credentials', {
         email: data.email,
@@ -21,11 +22,11 @@ const Login: React.FC = () => {
       });
 
       if (response?.ok) {
-        toast.success("Admin Logged in successfully !")
+        toast.success("Admin Logged in successfully !",{id:toastId});
+        router.push('/dashboard');
       }
-      router.push('/dashboard');
     } catch (error: any) {
-      toast.success(error?.message)
+      toast.success(error?.message,{id:toastId})
     }
   }
   return (

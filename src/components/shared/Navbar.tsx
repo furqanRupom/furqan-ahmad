@@ -19,7 +19,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
     const toggleDarkMode = () => {
         setIsDark(!isDark);
     };
-    const session = useSession();
+    const {data} = useSession();
+    const user = data?.user;
 
     return (
         <nav className='fixed top-0 w-full z-50 '>
@@ -87,7 +88,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                                         </motion.div>
                                     </Link>
                                     {
-                                        session?.data && <Link href="/dashboard" className='text-initial'>
+                                        user && <Link href="/dashboard" className='text-initial'>
                                             <motion.div
                                                 role="button"
                                                 className='flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 active:bg-gray-100 active:text-gray-900 dark:hover:bg-gray-600'
@@ -187,7 +188,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
 
 
                                     {
-                                        !session && <button onClick={() => signOut({
+                                        user && <button onClick={() => signOut({
                                             callbackUrl: "/login"
                                         })} className='text-initial'>
                                             <motion.div
