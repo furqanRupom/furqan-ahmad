@@ -42,6 +42,9 @@ export const options: NextAuthOptions = {
                     }
                     return user;
 
+
+
+                    
                 } catch (error) {
                     return null;
                 }
