@@ -19,13 +19,13 @@ const Skills: React.FunctionComponent = () => {
     });
 
     const variants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 20 },
         visible: (i: number) => ({
             opacity: 1,
             y: 0,
             transition: {
-                delay: i * 0.2,
-                duration: 1,
+                delay:  0.1,
+                duration: 0.6,
             },
         }),
         hover: { scale: 1.05 },
@@ -35,13 +35,15 @@ const Skills: React.FunctionComponent = () => {
         skillsRef.current.forEach((el, index) => {
             gsap.fromTo(
                 el,
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 20 },
                 {
-                    opacity: 1, y: 0, duration: 1,
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
                     scrollTrigger: {
                         trigger: el,
                         //@ts-ignore
-                        start: "top 100%", end: "bottom 50%", scrub: 1, delay: index * 0.2
+                        start: "top 100%", end: "bottom 50%", scrub: 1,
                     }
                 }
             );
@@ -50,7 +52,7 @@ const Skills: React.FunctionComponent = () => {
 
     return (
         <section id="skills" className='relative pt-32 px-8'>
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-slate-200 dark:from-gray-800 dark:to-slate-950 transform -skew-y-12 scale-150 opacity-30 -z-10 dark:-z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-slate-200 dark:from-gray-800 dark:to-slate-950 transform -skew-y-12 scale-150 opacity-30 -z-10"></div>
             <Title title='My Skills' />
             <div className='relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 rounded-3xl py-20'>
                 {getSkill?.map((skill: any, index: any) => (
