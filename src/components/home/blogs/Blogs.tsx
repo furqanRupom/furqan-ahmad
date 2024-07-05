@@ -7,6 +7,8 @@ import { useBlogs } from '@/hooks/data/useBlogs';
 import moment from "moment"
 import ReactHtmlParser from 'html-react-parser';
 import HTMLReactParser from 'html-react-parser/lib/index';
+import { useQuery } from '@tanstack/react-query';
+import getBlogsData from '@/actions/server/blogsAction';
 
 interface IBlog {
     title: string;
@@ -44,8 +46,13 @@ const BlogsSection: React.FunctionComponent<IBlogsPageProps> = (props) => {
             link: '#',
         },
     ];
-    const {data} = useBlogs();
-    const blogs = data?.data;
+   
+    const {data:blogsData,refetch}  = useQuery({
+        queryKey:['blogs'],
+        queryFn:async () => await getBlogsData() 
+    })
+
+    console.log(blogsData)
     useEffect(() => {
         const section = blogsRef.current;
 
@@ -71,7 +78,7 @@ const BlogsSection: React.FunctionComponent<IBlogsPageProps> = (props) => {
         <section id="blogs" ref={blogsRef} className="pt-16 px-8">
            <Title title='My Recent Blogs' />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-20">
-                {blogs?.map((blog:any, index:any) => (
+                {blogsData?.map((blog:any, index:any) => (
                     <div key={index} className=" rounded-lg dark:bg-gray-950 dark:bg-opacity-20  shadow-lg p-4 flex flex-col">
                         <div className="flex items-start">
                             <img 

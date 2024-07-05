@@ -8,6 +8,8 @@ import Title from "@/components/Title/Title";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useProjects } from "@/hooks/data/useProjects";
+import { useQuery } from "@tanstack/react-query";
+import getProjectsData from "@/actions/server/ProjectAction";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +17,11 @@ const Works: React.FC = () => {
     const sectionRef = useRef(null);
     const {data} = useProjects();
     const projects = data?.data
+
+    const { data: projectData, refetch } = useQuery({
+        queryKey: ['project'],
+        queryFn: async () => await getProjectsData()
+    })
 
    
 
@@ -44,7 +51,7 @@ const Works: React.FC = () => {
             <Title title="My Recent Projects" />
 
             <div className="mt-20 flex flex-wrap gap-7 justify-center">
-                {projects?.slice(1).map((project:any, index:any) => (
+                {projectData?.map((project:any, index:any) => (
                     <ProjectCard live_link="" key={`project-${index}`} index={index} {...project} />
                 ))}
             </div>
