@@ -1,10 +1,21 @@
 import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcrypt"
 
 
 export const POST = async (req: NextRequest) => {
     try {
         // create blog;
+        //  const hashPassword = await bcrypt.hash('fab123',12);
+        //  const user = await db.user.create({
+        //     data:{
+        //         name:"Furqan Ahmad",
+        //         email:"furqanrupom100@gmail.com",
+        //         password:hashPassword
+        //     }
+        //  })
+       
+
 
         const skillsData = await req.json();
 
