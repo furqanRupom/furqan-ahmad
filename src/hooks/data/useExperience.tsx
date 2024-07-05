@@ -6,7 +6,7 @@ export const useExperience = () => {
         queryKey: ['experience'],
         queryFn: async () => {
             const data = await axios.get('/api/experience');
-            return  await data.data;
+            return  data.data;
         },
     });
     return { data, refetch };

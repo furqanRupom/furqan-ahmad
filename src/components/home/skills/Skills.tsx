@@ -6,6 +6,8 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useSkills } from '@/hooks/data/useSkills';
+import { useQuery } from '@tanstack/react-query';
+import getSkillsData from '@/actions/server/SkillsAction';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +43,13 @@ const Skills: React.FunctionComponent = () => {
     const {data} = useSkills();
     // @ts-ignore
     const skills = data?.data;
-    console.log(skills)
+
+
+
+    const {data:getSkill,refetch} = useQuery({
+        queryKey:[''],
+        queryFn:async () => await getSkillsData()
+    })
     
 
     useEffect(() => {
@@ -60,7 +68,7 @@ const Skills: React.FunctionComponent = () => {
         <section id="skills" className='pt-32 px-8 bg-opacity-10'>
             <Title title='My Skills' />
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 rounded-3xl py-20'>
-                {skills?.map((skill:any, index:any) => (
+                {getSkill?.map((skill:any, index:any) => (
                 // @ts-ignore
                     <div key={skill.icon} ref={el => skillsRef.current[index] = el}>
                         <div className='dark:bg-gray-950 bg-gray-400 bg-opacity-5 dark:bg-opacity-20 p-10 backdrop-blur-sm rounded-3xl'>
