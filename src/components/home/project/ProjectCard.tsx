@@ -56,7 +56,7 @@ export const ProjectCard: React.FC<Project> = ({
                     </div>
                 </div>
                 <div className="mt-5">
-                    <h3 className="text-white font-bold text-[24px]">{name}</h3>
+                    <h3 className=" font-bold text-[24px]">{name}</h3>
                     <p className="mt-2 text-secondary text-[14px] leading-relaxed">{description}</p>
                 </div>
                 <Link href={liveLink} className="mt-4 flex justify-end">
