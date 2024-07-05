@@ -51,8 +51,8 @@ const Skills: React.FunctionComponent = () => {
     }, []);
 
     return (
-        <section id="skills" className='relative pt-32 px-8'>
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-slate-200 dark:from-gray-800 dark:to-slate-950 transform -skew-y-12 scale-150 opacity-30 -z-10"></div>
+        <section id="skills" className='relative pt-32 px-8 overflow-hidden'>
+       
             <Title title='My Skills' />
             <div className='relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 rounded-3xl py-20'>
                 {getSkill?.map((skill: any, index: any) => (
